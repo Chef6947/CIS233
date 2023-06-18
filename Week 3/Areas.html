@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Areas to Travel</title>
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+        body {
+            transition: background-color 0.5s ease;
+        }
+        
+        .brochure {
+            position: relative;
+            z-index: 2;
+            grid-column: 1 / -1;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+            align-items: center;
+            gap: 100px;
+            height: 100vh;
+        }
+
+        .image-gallery img {
+            width: 500px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Media Query for 600px threshold */
+        @media (max-width: 600px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Media Query for 1024px threshold */
+        @media (max-width: 1024px) {
+            .brochure {
+                grid-column: 1;
+            }
+
+            .image-gallery {
+                grid-column: 1;
+                grid-row: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <h1>Discover Anaheim</h1>
+    
+        <h2>Explore Disneyland</h2>
+        <p>Anaheim is famous for being home to the magical world of Disneyland. Embark on a journey filled with enchantment and meet your favorite Disney characters, enjoy thrilling rides, and witness spectacular parades and fireworks.</p>
+        
+        <h2>Visit Angel Stadium</h2>
+        <p>Baseball fans won't want to miss a trip to Angel Stadium, the home of the Los Angeles Angels. Catch an exciting game and experience the electric atmosphere as you cheer on your favorite team.</p>
+        
+        <h2>Discover Adventure at Adventure City</h2>
+        <p>Adventure City offers a day of family fun with rides, shows, and attractions for all ages. From thrilling roller coasters to interactive play areas, this amusement park guarantees an adventure-filled day for everyone.</p>
+        
+        <h2>Shop at Anaheim GardenWalk</h2>
+        <p>Indulge in some retail therapy at Anaheim GardenWalk. This premier outdoor shopping destination features a wide range of stores, restaurants, and entertainment options, making it the perfect place to spend a leisurely afternoon.</p>
+        
+        <h2>Experience Cultural Delights at MUZEO</h2>
+        <p>Immerse yourself in art, history, and culture at MUZEO. This museum hosts a variety of captivating exhibits and showcases the rich heritage and creativity of the Anaheim community.</p>
+        
+        <h2>Enjoy Nature at Oak Canyon Nature Center</h2>
+        <p>Escape the bustling city and reconnect with nature at Oak Canyon Nature Center. Take a leisurely hike along scenic trails, observe wildlife, and breathe in the fresh air in this tranquil oasis.</p>
+        
+        <h2>Taste Culinary Delights</h2>
+        <p>Anaheim offers a diverse culinary scene to satisfy every palate. From trendy cafes to gourmet restaurants, indulge in a variety of cuisines and savor the flavors of the city.</p>
+        
+        <h2>Unwind at the Beach</h2>
+        <p>Anaheim's proximity to beautiful beaches is an added bonus. Take a short drive to the coastal towns nearby and bask in the sun, swim in the ocean, or simply relax on the sandy shores.</p>
+        
+        <h2>Experience Nightlife at Downtown Disney</h2>
+        <p>When the sun goes down, Downtown Disney comes alive. Explore the vibrant nightlife scene with live entertainment, themed bars, and exciting clubs for a memorable evening.</p>
+        
+        <p>With its mix of magical attractions, outdoor adventures, cultural experiences, and culinary delights, Anaheim offers something for everyone. Plan your visit today and create unforgettable memories in this captivating city.</p>
+        
+        <p class="disclaimer">Disclaimer: This travel brochure is for illustrative purposes only. Please check the latest information and availability of attractions before planning your trip.</p>
+    </div>
+    
+    <div class="image-gallery">
+        <div class="left-images">
+            <img src="./Images/Beach.jpg" alt="Beach">
+            <img src="./Images/Convention.jpg" alt="Convention">
+        </div>
+        <div class="right-images">
+            <img src="./Images/Disney.jpg" alt="Disney">
+            <img src="./Images/outlet mall.jpg" alt="Outlet Mall">
+        </div>
+    </div>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fasMfbSXmDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <div>
+        <div>
+            <div class ="grid container"
+            <h3>Other Locations</h3>
+            <style>
+            </style>
+            <ul class="grid">
+                <li>
+                    <h3>Tokyo</h3>
+                    <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwixptb20sz_AhVwJkQIHfvUCuUQFnoECA8QAQ&url=https%3A%2F%2Fwww.tokyodisneyresort.jp%2Fen%2Ftdl%2F&usg=AOvVaw17bYfktzeiVHM4Pdc5Ggu3&opi=89978449">
+                        <img src="./Images/Tokyo.jpeg" alt="Tokyo">
+                    </a>
+                </li>
+                <li>
+                    <h3>Shanghai</h3>
+                    <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwje0eeA1Mz_AhVyLkQIHYh3DJwQFnoECCAQAQ&url=https%3A%2F%2Fwww.shanghaidisneyresort.com%2Fen%2F&usg=AOvVaw0QnoR1lq4SzJcBR0sYwl4-&opi=89978449">
+                        <img src="./Images/Shanghai2.jpeg" alt="Shanghai">
+                    </a>
+                </li>
+                <li>
+                    <h3>Hong Kong</h3>
+                    <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjI8JGN1cz_AhVXiO4BHcUcC5cQFnoECA8QAQ&url=https%3A%2F%2Fwww.hongkongdisneyland.com%2F&usg=AOvVaw16JEMgcpwWPzAKf-LVDjq3&opi=89978449">
+                        <img src="./Images/Hong Kong.jpeg" alt="Hong Kong">
+                    </a>
+                </li>
+                <li>
+                    <h3>Paris</h3>
+                    <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiXhae01sz_AhV6J0QIHYKlAVwQFnoECBAQAQ&url=https%3A%2F%2Fwww.disneylandparis.com%2Fen-usd%2F&usg=AOvVaw2nOhNYVdP3qiUqrxFjy1L2&opi=89978449">
+                        <img src="./Images/Paris.jpeg" alt="Paris">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var currentTime = new Date().getHours();
+            var body = document.querySelector('body');
+
+            if (currentTime >= 6 && currentTime < 12) {
+                body.style.backgroundColor = 'rgb(245, 245, 245)';
+            } else if (currentTime >= 12 && currentTime < 18) {
+                body.style.backgroundColor = 'rgb(220, 220, 220)';
+            } else {
+                body.style.backgroundColor = 'rgb(68, 68, 68)';
+            }
+        });
+    </script>
+</body>
+</html>
