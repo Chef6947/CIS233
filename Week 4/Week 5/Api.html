@@ -1,0 +1,24 @@
+import requests
+
+def get_book_details(isbn):
+    base_url = 'https://example-book-api.com/books'
+
+    # Construct the API request URL with the ISBN as a query parameter
+    url = f'{base_url}?isbn={isbn}'
+
+    # Send the API request
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        book_data = response.json()
+        title = book_data['title']
+        author = book_data['author']
+        genre = book_data['genre']
+        print(f'Title: {title}')
+        print(f'Author: {author}')
+        print(f'Genre: {genre}')
+    else:
+        print('Failed to retrieve book details.')
+
+# Call the function and pass the ISBN of the desired book as an argument
+get_book_details('1234567890')
