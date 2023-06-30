@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Weather Reading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        #weather {
+            margin: 50px auto;
+            padding: 20px;
+            width: 300px;
+            background-image: url("./Images/Disney.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Set initial opacity to 0 */
+            animation: fadeIn 1s ease-in-out forwards; /* Apply fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        #weather h2 {
+            font-size: 28px;
+            margin-top: 0;
+            color: #fff; /* Font color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+        }
+
+        #weather p {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #4d046d; /* Font color */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add text shadow */
+            background-color: rgba(255, 255, 255, 0.8); /* Add background color */
+            padding: 5px; /* Add padding for better visibility */
+        }
+
+        .dropdown {
+            margin-top: 10px;
+        }
+
+        .dropdown select {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .dropdown option {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="weather">
+        <h2>Live Weather Reading</h2>
+        <p id="temperature"></p>
+        <p id="description"></p>
+        <div class="dropdown">
+            <select onchange="handleDropdownChange(this)">
+                <option value="">Select an option</option>
+                <option value="Areas.html">Areas</option>
+                <!-- Add more options here if needed -->
+            </select>
+        </div>
+    </div>
+
+    <script>
+        function handleDropdownChange(select) {
+            var selectedValue = select.value;
+            if (selectedValue !== '') {
+                window.location.href = selectedValue;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            // Weather fetching and display code
+            function getWeather() {
+                let apikey = "ff167c4433af02567836e31105ea6568";
+                let url = `https://api.openweathermap.org/data/2.5/weather?q=Anaheim&appid=${apikey}`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        let temperature = data.main.temp;
+                        let description = data.weather[0].description;
+
+                        let temperatureElement = document.getElementById("temperature");
+                        temperatureElement.textContent = `Current temperature in Anaheim: ${temperature} Kelvin`;
+
+                        let descriptionElement = document.getElementById("description");
+                        descriptionElement.textContent = `Description: ${description}`;
+                    })
+                    .catch(error => {
+                        console.log("Error fetching weather data:", error);
+                    });
+            }
+
+            getWeather();
+        });
+    </script>
+</body>
+</html>

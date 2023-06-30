@@ -13,7 +13,6 @@
     </header>
     <main role="main" aria-labelledby="main-heading">
         <article>
-            <h2 id="main-heading">Explore Disneyland</h2>
             <p>Anaheim is famous for being home to the magical world of Disneyland. Embark on a journey filled with enchantment and meet your favorite Disney characters, enjoy thrilling rides, and witness spectacular parades and fireworks.</p>
             <h2>Visit Angel Stadium</h2>
             <p>Baseball fans won't want to miss a trip to Angel Stadium, the home of the Los Angeles Angels. Catch an exciting game and experience the electric atmosphere as you cheer on your favorite team.</p>
@@ -32,22 +31,34 @@
             <h2>Experience Nightlife at Downtown Disney</h2>
             <p>When the sun goes down, Downtown Disney comes alive. Explore the vibrant nightlife scene with live entertainment, themed bars, and exciting clubs for a memorable evening.</p>
             <p>With its mix of magical attractions, outdoor adventures, cultural experiences, and culinary delights, Anaheim offers something for everyone. Plan your visit today and create unforgettable memories in this captivating city.</p>
+            <a href="weather.html">
+                <div id="weather">
+                    <!-- Add an image here -->
+                    <img src="anaheim.jpg" alt="Anaheim Image">
+                </div>
+            </a>
         </article>
         <p class="disclaimer" role="note">Disclaimer: This travel brochure is for illustrative purposes only. Please check the latest information and availability of attractions before planning your trip.</p>
     </main>
-    <section class="image-gallery" role="region" aria-label="Image Gallery">
-        <div class="left-images">
-            <img src="./Images/Beach.jpg" alt="Beach">
-            <img src="./Images/Convention.jpg" alt="Convention">
-        </div>
-        <div class="right-images">
-            <img src="./Images/Disney.jpg" alt="Disney">
-            <img src="./Images/outlet mall.jpg" alt="Outlet Mall">
-        </div>
-    </section>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/fasMfbSXmDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <section role="region" aria-label="Other Locations">
-        <div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Disney Locations</title>
+    </head>
+    
+    <body>
+        <main>
+            <div class="left-images">
+                <img src="./Images/Convention.jpg" alt="Convention">
+            </div>
+            <div class="right-images">
+                <img src="./Images/Disney.jpg" alt="Disney">
+                <img src="./Images/outlet mall.jpg" alt="Outlet Mall">
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fasMfbSXmDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </main>
+    
+        <section role="region" aria-label="Other Locations">
             <div class="grid-container">
                 <h3>Other Locations</h3>
                 <ul class="grid">
@@ -77,30 +88,109 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </section>
+    </main>
 
     <script>
         window.addEventListener('DOMContentLoaded', function() {
-            var currentTime = new Date().getHours();
-            var body = document.querySelector('body');
+            // Weather fetching and display code
+            function getWeather() {
+                let apikey = "ff167c4433af02567836e31105ea6568";
+                let url = `https://api.openweathermap.org/data/2.5/weather?q=Anaheim&appid=${apikey}`;
 
-            if (currentTime >= 6 && currentTime < 12) {
-                body.style.backgroundColor = 'rgb(245, 245, 245)';
-            } else if (currentTime >= 12 && currentTime < 18) {
-                body.style.backgroundColor = 'rgb(220, 220, 220)';
-            } else {
-                body.style.backgroundColor = 'rgb(68, 68, 68)';
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        let temperature = data.main.temp;
+                        let description = data.weather[0].description;
+
+                        let weatherDiv = document.getElementById("weather");
+                        weatherDiv.innerHTML = `Current temperature in Anaheim: ${temperature} Kelvin. Description: ${description}`;
+                    })
+                    .catch(error => {
+                        console.log("Error fetching weather data:", error);
+                    });
             }
+
+            getWeather();
         });
     </script>
+
     <style>
+        #weather {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#weather img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+#weather img:hover {
+    border-color: #ff0000;
+}
+
         @font-face {
             font-family: 'CustomFont';
             src: url('fonts/Mezcal.otf') format('opentype');
         }
+
         body {
             font-family: 'CustomFont', Arial, sans-serif;
+        }
+
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .search-container input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .grid-container {
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .grid li {
+            text-align: center;
+        }
+
+        .grid a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .grid img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .grid img:hover {
+            border-color: #ff0000;
         }
     </style>
 </body>
